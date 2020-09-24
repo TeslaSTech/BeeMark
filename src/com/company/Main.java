@@ -24,7 +24,7 @@ public class Main {
             ScannerTotal = ScannerTotal + ScannerAVG[i];
             if (i % (timesToRun/25) == 0)
                 System.out.print("=");
-            System.gc();
+            System.gc(); // FINALLY DOESN'T USE 6.5GB OF MEMORY
         }
         for (int i = 0; i < timesToRun; i++) {
             startTime = System.nanoTime();
