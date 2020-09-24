@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    public static int timesToRun = 10000; // Times to run each benchmark (total iterations = 2x this)
+    public static int timesToRun = 1000; // Times to run each benchmark (total iterations = 2x this)
     // Best to keep this to round numbers or otherwise the progress bar may not be perfectly functional
 
     public static void main(String[] args) {
@@ -14,7 +14,7 @@ public class Main {
         long BWAVG[] = new long[timesToRun];
         long ScannerTotal = 0, BWTotal = 0, BWAVGI = 0, ScannerAVGI = 0;
 
-        System.out.println("Benchmark Progress:\n0%            [Scanner]  ||  [BufferedWriter]   100%");
+        System.out.println("Benchmark Progress:\n0%            [Scanner]  ||  [BufferedReader]   100%");
         System.out.print("[");
         for (int i = 0; i < timesToRun; i++) {
             startTime = System.nanoTime();
@@ -24,6 +24,7 @@ public class Main {
             ScannerTotal = ScannerTotal + ScannerAVG[i];
             if (i % (timesToRun/25) == 0)
                 System.out.print("=");
+            System.gc();
         }
         for (int i = 0; i < timesToRun; i++) {
             startTime = System.nanoTime();
@@ -33,6 +34,7 @@ public class Main {
             BWTotal = BWTotal + BWAVG[i];
             if (i % (timesToRun/25) == 0)
                 System.out.print("=");
+            System.gc();
         }
         System.out.println("]\n\n");
 
