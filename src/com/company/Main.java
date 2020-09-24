@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    public static int timesToRun = 10000; // Times to run each benchmark (total iterations = 2x this)
+    public static int timesToRun = 1000; // Times to run each benchmark (total iterations = 2x this)
     // Best to keep this to round numbers or otherwise the progress bar may not be perfectly functional
 
     public static void main(String[] args) {
@@ -40,16 +40,12 @@ public class Main {
         ScannerAVGI = ScannerTotal / timesToRun;
 
         System.out.println("Scanner average time to run with " + timesToRun + " iterations (µs):" + ScannerAVGI);
-        System.out.println("BufferedWriter average time to run with " + timesToRun + " iterations (µs):" + BWAVGI);
-
-
+        System.out.println("BufferedReader average time to run with " + timesToRun + " iterations (µs):" + BWAVGI);
+        long score = 10000 - (ScannerAVGI+BWAVGI)/2;
+        System.out.println("Score (higher is better): " + score);
     }
 
     // Methods
-    public static void clearScreen() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
-    }
     public static void ScannerRead() {
         try {
             Scanner read = new Scanner(new File("src/com/company/in.txt"));
