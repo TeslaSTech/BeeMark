@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.Scanner;
 
 public class Main {
-    public static int timesToRun = 1000; // Times to run each benchmark (total iterations = 2x this)
+    public static int timesToRun = 5000; // Times to run each benchmark (total iterations = 2x this)
     // Best to keep this to round numbers or otherwise the progress bar may not be perfectly functional
 
     public static void main(String[] args) {
